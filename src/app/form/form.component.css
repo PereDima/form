@@ -1,0 +1,26 @@
+*,
+*::after,
+*::before {
+display: block;
+margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  width: 8em;
+  height: 2.5em;
+  font-size: 1em;
+  border-radius: 10px;
+  color: #000;
+  box-shadow: inset 0 0 10px 3px rgb(60, 255, 0);
+  background: rgb(255, 255, 255);
+  border: none;
+}
+button:disabled {
+  box-shadow: inset 0 0 10px 3px red;
+}

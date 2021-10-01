@@ -1,10 +1,35 @@
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+<div class="container">
 
-  <label for="first-name">First Name: </label>
-  <input id="first-name" type="text" formControlName="firstName">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
 
-  <label for="last-name">Last Name: </label>
-  <input id="last-name" type="text" formControlName="lastName">
+    <br>
 
-  <button type="submit" [disabled]="!myForm.valid">Submit</button>
-</form>
+    <label for="first-name">First Name: </label>
+    <input id="first-name" type="text" formControlName="firstName">
+
+    <br>
+  
+    <label for="last-name">Last Name: </label>
+    <input id="last-name" type="text" formControlName="lastName">
+    
+    <br>
+    
+    <label for="nick-name">Nick Name: </label>
+    <input id="nick-name" type="text" formControlName="nickName">
+    
+    <br>
+    
+    <label for="email">E-Mail: </label>
+    <input id="email" type="email" formControlName="email">    
+    
+    <br>
+
+    <label for="password">Password: </label>
+    <input id="password" type="password" formControlName="password">
+
+    <br>
+  
+    <button type="submit" [disabled]="!myForm.valid">Submit</button>
+  </form>
+
+</div>

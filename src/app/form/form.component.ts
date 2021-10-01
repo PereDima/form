@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -7,14 +13,19 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent implements OnInit {
-  constructor() {}
+  myForm: FormGroup | any;
 
-  myForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-  });
+  constructor(private fb:FormBuilder) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.myForm = this.fb.group({
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      nickName: ['', [Validators.required]],
+      email: ['', [Validators.email]],
+      password: ['', [Validators.required],],
+    });
+  }
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.log(this.myForm.value);
