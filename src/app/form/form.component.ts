@@ -33,7 +33,7 @@ export class FormComponent implements OnInit {
       password: new FormControl('', [
         Validators.required,
         Validators.pattern(
-          '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$'
+          '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&_*-]).{8,}$'
         ),
       ]),
     });

@@ -2,3 +2,8 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: rgb(102, 0, 144);
+  margin-right: 10px;
+}
+/* https://stackoverflow.com/questions/51096529/changing-border-color-in-mat-form-field/51097028 */

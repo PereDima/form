@@ -1,27 +1,40 @@
+<mat-toolbar>
+  <mat-icon aria-hidden="false" aria-label="Example home icon"
+    >facebook</mat-icon
+  >
+  <span>Welcome to Mordobook!</span>
+</mat-toolbar>
+<br />
+<h2>Create your account now!</h2>
+
 <div class="container">
-
-  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-
-    <br>
-    <!-- value: {{myForm.value | json}} -->
+  <form class="form-cont" [formGroup]="myForm" (ngSubmit)="onSubmit()">
     <br />
 
-
-    <div class="flex-row ">
+    <div class="flex-row">
       <mat-form-field appearance="outline">
         <mat-label>First Name</mat-label>
-        <input matInput placeholder="Placeholder" formControlName="firstName" required />
+        <input
+          matInput
+          placeholder="Placeholder"
+          formControlName="firstName"
+          required
+        />
         <mat-error *ngIf="firstName.touched && firstName.invalid">
-          First Name is required!
+          First Name should at least 2 characters!
         </mat-error>
       </mat-form-field>
 
-
       <mat-form-field appearance="outline">
         <mat-label>Last Name</mat-label>
-        <input matInput placeholder="Placeholder" formControlName="lastName" required />
+        <input
+          matInput
+          placeholder="Placeholder"
+          formControlName="lastName"
+          required
+        />
         <mat-error *ngIf="lastName.touched && lastName.invalid">
-          Last Name is required!
+          Last Name should at least 3 characters!
         </mat-error>
       </mat-form-field>
     </div>
@@ -31,25 +44,45 @@
     <div class="flex-row">
       <mat-form-field appearance="outline">
         <mat-label>Nick Name</mat-label>
-        <input matInput placeholder="Placeholder" formControlName="nickName" required />
+        <input
+          matInput
+          placeholder="Placeholder"
+          formControlName="nickName"
+          required
+        />
         <mat-error *ngIf="nickName.touched && nickName.invalid">
-          Nick Name is required!
+          Nick Name nickname field cannot be empty!
         </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Enter password</mat-label>
-        <input matInput placeholder="Placeholder" formControlName="password" required [type]="hide ? 'password' : 'text'">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <input
+          matInput
+          placeholder="Placeholder"
+          formControlName="password"
+          required
+          [type]="hide ? 'password' : 'text'"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
         </button>
         <mat-error *ngIf="password.touched && password.invalid">
-          Passwordshould have at least 1 letter 1 number and at least 8 characters!
+          Password should have capital letter, at least 1 number,
+          symbol(#?!@$%^&_*-) and at least 8 characters!
         </mat-error>
       </mat-form-field>
     </div>
 
-    <mat-form-field class="full-width" appearance="outline" >
+    <br />
+
+    <mat-form-field class="full-width" appearance="outline">
       <mat-label>Email</mat-label>
       <input
         matInput
@@ -61,12 +94,13 @@
       <mat-error *ngIf="email.touched && email.invalid">
         Please enter valid e-mail!
       </mat-error>
+      <mat-error *ngIf="email.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
 
     <div class="button-container">
-      <button mat-raised-button color="accent" type="submit">Submit</button>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
     </div>
-
   </form>
-
 </div>
