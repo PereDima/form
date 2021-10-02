@@ -61,8 +61,8 @@ export class FormComponent implements OnInit {
 
   onSubmit() {
     if (this.myForm.valid) {
-      const formData = { ...this.myForm.value };
-      console.log(formData);
+      const Data = { ...this.myForm.value };
+      console.log(Data);
       this.myForm.reset();
     }
   }
