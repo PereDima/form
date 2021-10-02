@@ -3,33 +3,72 @@
   <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
 
     <br>
+    value: {{myForm.value | json}}
+    <br />
 
-    <label for="first-name">First Name: </label>
-    <input id="first-name" type="text" formControlName="firstName">
 
-    <br>
-  
-    <label for="last-name">Last Name: </label>
-    <input id="last-name" type="text" formControlName="lastName">
-    
-    <br>
-    
-    <label for="nick-name">Nick Name: </label>
-    <input id="nick-name" type="text" formControlName="nickName">
-    
-    <br>
-    
-    <label for="email">E-Mail: </label>
-    <input id="email" type="email" formControlName="email">    
-    
-    <br>
+    <div class="flex-row">
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" required />
+        <mat-error *ngIf="firstName.touched && firstName.invalid">
+          First Name is required!
+        </mat-error>
+      </mat-form-field>
 
-    <label for="password">Password: </label>
-    <input id="password" type="password" formControlName="password">
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" required />
+        <mat-error *ngIf="lastName.touched && lastName.invalid">
+          Last Name is required!
+        </mat-error>
+      </mat-form-field>
+    </div>
 
-    <br>
-  
-    <button type="submit" [disabled]="!myForm.valid">Submit</button>
+    <br />
+
+    <div class="flex-row">
+      <mat-form-field appearance="outline">
+        <mat-label>Nick Name</mat-label>
+        <input matInput formControlName="nickName" required />
+        <mat-error *ngIf="nickName.touched && nickName.invalid">
+          Nick Name is required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input
+          type="password"
+          minlength="8"
+          matInput
+          formControlName="password"
+          required
+        />
+        <mat-error *ngIf="password.touched && password.invalid">
+          Password should have at least 1 letter 1 number and at least 5
+          characters!
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline" >
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        formControlName="email"
+        required
+        placeholder="here@example.com"
+      />
+      <mat-error *ngIf="email.touched && email.invalid">
+        Please enter valid e-mail!
+      </mat-error>
+    </mat-form-field>
+
+    <div class="button-container">
+      <button mat-raised-button color="accent" type="submit">Submit</button>
+    </div>
+
   </form>
 
 </div>

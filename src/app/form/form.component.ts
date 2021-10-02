@@ -7,27 +7,69 @@ import {
   Validators,
 } from '@angular/forms';
 
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent implements OnInit {
-  myForm: FormGroup | any;
 
-  constructor(private fb:FormBuilder) {}
+  myForm: FormGroup | any;
+  hide = true;
+
+  // firstName = new FormControl('', [
+  //   Validators.required,
+  //   Validators.min(2)
+  // ]);
+  // lastName = new FormControl('', [
+  //   Validators.required,
+  //   Validators.min(3)
+  // ]);
+  // nickName = new FormControl('', [
+  //   Validators.required,
+  // ]);
+  // email = new FormControl('', [
+  //   Validators.required,
+  //   Validators.email,
+  // ]);
+  // password = new FormControl('', [
+  //   Validators.required,
+  //   Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')
+  // ])
+
+  
+  constructor() { }
 
   ngOnInit(): void {
-    this.myForm = this.fb.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      nickName: ['', [Validators.required]],
-      email: ['', [Validators.email]],
-      password: ['', [Validators.required],],
+
+    this.myForm = new FormGroup({
+
+      firstName: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2)
+      ]),
+      lastName: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+      nickName: new FormControl('', [
+        Validators.required,
+      ]),
+      email: new FormControl('', [
+        Validators.required,
+        Validators.email,
+      ]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')
+      ])
+
     });
   }
   onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.log(this.myForm.value);
+    if (this.myForm.valid) {
+      console.log(this.myForm.value);
+    }
   }
 }
