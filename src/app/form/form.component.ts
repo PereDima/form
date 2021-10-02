@@ -35,7 +35,7 @@ export class FormComponent implements OnInit {
   ]);
   password = new FormControl('', [
     Validators.required,
-    Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')
+    Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-_]).{8,}$')
   ])
 
   
@@ -64,6 +64,7 @@ export class FormComponent implements OnInit {
         Validators.required,
         Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')
       ])
+      
 
     });
   }

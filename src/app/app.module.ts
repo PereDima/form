@@ -15,6 +15,7 @@ import { FormComponent } from './form/form.component';
 import {
   BrowserAnimationsModule
 } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {
     MatNativeDateModule,
     MatButtonModule,
     MatToolbarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

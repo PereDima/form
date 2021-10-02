@@ -3,22 +3,23 @@
   <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
 
     <br>
-    value: {{myForm.value | json}}
+    <!-- value: {{myForm.value | json}} -->
     <br />
 
 
-    <div class="flex-row">
+    <div class="flex-row ">
       <mat-form-field appearance="outline">
         <mat-label>First Name</mat-label>
-        <input matInput formControlName="firstName" required />
+        <input matInput placeholder="Placeholder" formControlName="firstName" required />
         <mat-error *ngIf="firstName.touched && firstName.invalid">
           First Name is required!
         </mat-error>
       </mat-form-field>
 
+
       <mat-form-field appearance="outline">
         <mat-label>Last Name</mat-label>
-        <input matInput formControlName="lastName" required />
+        <input matInput placeholder="Placeholder" formControlName="lastName" required />
         <mat-error *ngIf="lastName.touched && lastName.invalid">
           Last Name is required!
         </mat-error>
@@ -30,32 +31,26 @@
     <div class="flex-row">
       <mat-form-field appearance="outline">
         <mat-label>Nick Name</mat-label>
-        <input matInput formControlName="nickName" required />
+        <input matInput placeholder="Placeholder" formControlName="nickName" required />
         <mat-error *ngIf="nickName.touched && nickName.invalid">
           Nick Name is required!
         </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Password</mat-label>
-        <input
-          type="password"
-          minlength="8"
-          matInput
-          formControlName="password"
-          required
-        />
-        <mat-error *ngIf="password.touched && password.invalid">
-          Password should have at least 1 letter 1 number and at least 5
-          characters!
-        </mat-error>
+        <mat-label>Enter password</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="password" required [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
       </mat-form-field>
     </div>
 
-    <mat-form-field appearance="outline" >
+    <mat-form-field class="full-width" appearance="outline" >
       <mat-label>Email</mat-label>
       <input
         matInput
+        placeholder="Placeholder"
         formControlName="email"
         required
         placeholder="here@example.com"
