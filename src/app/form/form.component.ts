@@ -18,25 +18,25 @@ export class FormComponent implements OnInit {
   myForm: FormGroup | any;
   hide = true;
 
-  // firstName = new FormControl('', [
-  //   Validators.required,
-  //   Validators.min(2)
-  // ]);
-  // lastName = new FormControl('', [
-  //   Validators.required,
-  //   Validators.min(3)
-  // ]);
-  // nickName = new FormControl('', [
-  //   Validators.required,
-  // ]);
-  // email = new FormControl('', [
-  //   Validators.required,
-  //   Validators.email,
-  // ]);
-  // password = new FormControl('', [
-  //   Validators.required,
-  //   Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')
-  // ])
+  firstName = new FormControl('', [
+    Validators.required,
+    Validators.min(2)
+  ]);
+  lastName = new FormControl('', [
+    Validators.required,
+    Validators.min(3)
+  ]);
+  nickName = new FormControl('', [
+    Validators.required,
+  ]);
+  email = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
+  password = new FormControl('', [
+    Validators.required,
+    Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')
+  ])
 
   
   constructor() { }
