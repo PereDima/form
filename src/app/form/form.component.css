@@ -33,12 +33,9 @@ input {
 
 button {
   width: 8em;
-  height: 2.5em;
+  height: 2.5em;  
 }
 
-button:disabled {
-  color: 'warn';
-}
 .button-container {
   align-self: center;
 }
