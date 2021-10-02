@@ -10,7 +10,7 @@
     <div class="flex-row ">
       <mat-form-field appearance="outline">
         <mat-label>First Name</mat-label>
-        <input matInput placeholder="Placeholder" [formControl]="firstName" required />
+        <input matInput placeholder="Placeholder" formControlName="firstName" required />
         <mat-error *ngIf="firstName.touched && firstName.invalid">
           First Name is required!
         </mat-error>
@@ -19,7 +19,7 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Last Name</mat-label>
-        <input matInput placeholder="Placeholder" [formControl]="lastName" required />
+        <input matInput placeholder="Placeholder" formControlName="lastName" required />
         <mat-error *ngIf="lastName.touched && lastName.invalid">
           Last Name is required!
         </mat-error>
@@ -31,7 +31,7 @@
     <div class="flex-row">
       <mat-form-field appearance="outline">
         <mat-label>Nick Name</mat-label>
-        <input matInput placeholder="Placeholder" [formControl]="nickName" required />
+        <input matInput placeholder="Placeholder" formControlName="nickName" required />
         <mat-error *ngIf="nickName.touched && nickName.invalid">
           Nick Name is required!
         </mat-error>
@@ -39,7 +39,7 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Enter password</mat-label>
-        <input matInput placeholder="Placeholder" [formControl]="password" required [type]="hide ? 'password' : 'text'">
+        <input matInput placeholder="Placeholder" formControlName="password" required [type]="hide ? 'password' : 'text'">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
@@ -54,7 +54,7 @@
       <input
         matInput
         placeholder="Placeholder"
-        [formControl]="email"
+        formControlName="email"
         required
         placeholder="here@example.com"
       />
